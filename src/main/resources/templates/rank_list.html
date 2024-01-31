@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <title>랭킹정보</title>
+</head>
+<body>
+<nav th:replace="~{navbar :: navbarFragment}"></nav>
+<div class="container my-3">
+    <div class="d-flex align-items-start flex-column bd-highlight ">
+        <div class="p-2 bd-highlight">
+            <a class="btn btn-primary" th:href="@{?world_type=일반}">일반</a>
+            <a class="btn btn-primary" th:href="@{?world_type=리부트}">리부트</a>
+        </div>
+    </div>
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+            <table class="table" style="">
+                <thead class="table-dark">
+                <tr>
+                    <th>순위</th>
+                    <th>닉네임</th>
+                    <th>레벨</th>
+                    <th>직업</th>
+                    <th>월드</th>
+                    <th>길드</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="rankList, loop : ${rankList}">
+                    <td th:text="${rankList.getRanking()}"></td>
+                    <td>
+                        <a th:href="@{|/info?username=${rankList.getCharacter_name()}|}"
+                           th:text="${rankList.getCharacter_name()}"></a>
+                    </td>
+                    <td th:text="${rankList.getCharacter_level()}"></td>
+                    <td>
+                        <a th:text="${rankList.getSub_class_name()}"></a>
+                        <a th:if="${#strings.isEmpty(rankList.getSub_class_name())}"
+                           th:text="${rankList.getClass_name()}"></a>
+                    </td>
+                    <td th:text="${rankList.getWorld_name()}"></td>
+                    <td th:text="${rankList.getCharacter_guildname()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

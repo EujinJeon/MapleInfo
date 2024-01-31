@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <title>메인포</title>
+</head>
+<body>
+<nav th:replace="~{navbar :: navbarFragment}"></nav>
+
+<div class="container my-3">
+    <div class="card" style="width: 18rem;">
+        <img th:src="${user.character_image}" class="text-center card-img-top"
+             alt="" style="border:0; height: 100px; width: 100px;">
+        <ul class="list-group list-group-flush">
+            <li class="text-center list-group-item" th:text="${user.character_name}"></li>
+            <li class="text-center list-group-item" th:text="${user.world_name}"></li>
+            <li class="text-center list-group-item" th:text="${user.character_class}"></li>
+            <li class="text-center list-group-item" th:text="${user.character_level}"></li>
+            <li class="text-center list-group-item" th:text="${user.character_guild_name}"></li>
+        </ul>
+    </div>
+</div>
+
+<script th:src="@{/bootstrap.min.js}"></script>
+<script th:inline="javascript">
+    document.title = [[${user.character_name}]];
+</script>
+
+</body>
+</html>
