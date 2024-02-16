@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <title>메인포</title>
 </head>
 <body>
-<h5>Index</h5>
+<nav th:replace="~{navbar :: navbarFragment}"></nav>
+<div class="container my-3">
+    <div class="justify-content-center">
+        <div class="position-absolute top-50 start-50 translate-middle">
+
+            <h1 class="fw-bold text-center">MAPLEINFO</h1>
+
+
+            <form th:action="@{/info}" method="get" class="row g-3">
+                <div class="input-group mb-3" style="width: 500px;">
+                    <input class="form-control form-control-lg" type="text" placeholder="캐릭터 닉네임을 입력하세요."
+                           aria-label=".form-control-lg example" th:name="username"
+                           onKeyPress="if (event.keyCode==13) { form.submit(); }">
+                    <input type="submit" value="검색" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script th:src="@{/bootstrap.min.js}"></script>
 </body>
 </html>

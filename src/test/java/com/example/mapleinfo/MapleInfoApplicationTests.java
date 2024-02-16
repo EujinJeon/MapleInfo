@@ -1,6 +1,9 @@
 package com.example.mapleinfo;
 
+import com.example.mapleinfo.entity.Equiment;
 import com.example.mapleinfo.entity.Rank;
+import com.example.mapleinfo.entity.item.Item;
+import com.example.mapleinfo.service.EquiService;
 import com.example.mapleinfo.service.InfoService;
 import com.example.mapleinfo.entity.User;
 import com.example.mapleinfo.service.RankService;
@@ -24,6 +27,8 @@ class MapleInfoApplicationTests {
     private InfoService infoService;
     @Autowired
     private RankService rankService;
+    @Autowired
+    private EquiService equiService;
     @Test
     void contextLoads() {
         String ocid = infoService.getUserId("삼한제일검사");
@@ -72,5 +77,14 @@ class MapleInfoApplicationTests {
     void loadRank() {
         List<Rank.RankLoad> ranking = rankService.rankList("2024-01-17", 1, 1);
         System.out.println(ranking.get(0).getCharacter_name());
+    }
+
+    @Test
+    void loadEquiment(){
+        String ocid = infoService.getUserId("삼한제일검사");
+        Equiment equiment = equiService.getUserEquiment(ocid, "2024-02-15");
+        //Item testItem = equiment.getItem_equiment().get(0);
+        //System.out.println(testItem);
+        System.out.println(equiment.getCharacter_class());
     }
 }

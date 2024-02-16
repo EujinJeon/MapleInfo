@@ -9,17 +9,20 @@
 <body>
 <nav th:replace="~{navbar :: navbarFragment}"></nav>
 
-<div class="container my-3">
-    <div class="card" style="width: 18rem;">
-        <img th:src="${user.character_image}" class="text-center card-img-top"
-             alt="" style="border:0; height: 100px; width: 100px;">
-        <ul class="list-group list-group-flush">
-            <li class="text-center list-group-item" th:text="${user.character_name}"></li>
-            <li class="text-center list-group-item" th:text="${user.world_name}"></li>
-            <li class="text-center list-group-item" th:text="${user.character_class}"></li>
-            <li class="text-center list-group-item" th:text="${user.character_level}"></li>
-            <li class="text-center list-group-item" th:text="${user.character_guild_name}"></li>
-        </ul>
+<div class="card text-bg-dark" style="width: 1000px; height: 350px; overflow: hidden; margin: 0 auto;">
+    <img src="https://mblogthumb-phinf.pstatic.net/MjAyMTAxMjJfMTU1/MDAxNjExMjQ0NzI1Nzk1.4K2ppIx5uKWV4kL7aCiZrjP-3EPwNweSRNepd4W8nyog.5tAGhocxba-C0sAQ5k_Fk1cG5wSFwg9daV-HDEV3WVEg.PNG.nrzzzzzz/%EC%9D%B4%EB%A6%84%EC%9D%B4_%EC%9E%8A%ED%98%80%EC%A7%84_%ED%99%A9%EC%95%BC.png?type=w800"
+         class="card-img" alt="..." style="opacity: 0.5; width: 100%; height: 100%; object-fit: cover;">
+    <div class=" card-img-overlay" style="margin-top: 75px;">
+        <div style="display: inline-block; vertical-align: top;">
+            <img th:src="${user.character_image}" alt="..." style="width: 150px; height: 150px;">
+        </div>
+        <div style="display: inline-block; margin-left: 10px;">
+            <h5 class="card-title" th:text="${user.character_name}"></h5>
+            <p class="card-text" th:text="${user.character_level}"></p>
+            <p class="card-text" th:text="${user.character_guild_name}"></p>
+            <p class="card-text" th:text="${user.world_name}"></p>
+            <p class="card-text" th:text="${user.character_class}"></p>
+        </div>
     </div>
 </div>
 
